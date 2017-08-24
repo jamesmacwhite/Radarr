@@ -1,5 +1,6 @@
+#!/bin/sh
 if [ $# -eq 0 ]; then
-  if [ "$TRAVIS_PULL_REQUEST" != false ]; then
+  if [ "$TRAVIS_PULL_REQUEST" != false ] ; then
     echo "Need to supply version argument" && exit;
   fi
 fi
@@ -16,11 +17,11 @@ case "$(uname -s)" in
         ;;
 esac
 
-if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then
-  VERSION="`date +%H:%M:%S`"
-  YEAR="`date +%Y`"
-  MONTH="`date +%m`"
-  DAY="`date +%d`"
+if [ "$TRAVIS_PULL_REQUEST" = "false" ] ; then
+  VERSION="$(date +%H:%M:%S)"
+  YEAR="$(date +%Y)"
+  MONTH="$(date +%m)"
+  DAY="$(date +%d)"
 else
   VERSION=$1
   BRANCH=$2
